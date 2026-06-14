@@ -1,0 +1,20 @@
+{
+  "name": "controle-despesas",
+  "version": "1.0.0",
+  "description": "Sistema de Controle de Despesas Pessoais",
+  "main": "backend/app.js",
+  "scripts": {
+  "start": "node backend/app.js",
+  "dev": "nodemon backend/app.js",
+  "build:front": "tsc",
+  "watch:front": "tsc -w"
+},
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

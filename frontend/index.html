@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Despesas Pessoais</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+            <span class="fs-4 fw-bold text-primary"><i class="bi bi-wallet2 me-2"></i>Finanças Pessoais</span>
+        </header>
+
+        <div class="row text-center mb-4">
+            <div class="col-md-4 mb-2">
+                <div class="card border-success bg-success bg-opacity-10 h-100">
+                    <div class="card-body">
+                        <h6 class="card-title text-success">Receitas</h6>
+                        <h3 class="card-text fw-bold text-success" id="total-receitas">R$ 0,00</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card border-danger bg-danger bg-opacity-10 h-100">
+                    <div class="card-body">
+                        <h6 class="card-title text-danger">Despesas</h6>
+                        <h3 class="card-text fw-bold text-danger" id="total-despesas">R$ 0,00</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-2">
+                <div class="card border-primary bg-primary bg-opacity-10 h-100">
+                    <div class="card-body">
+                        <h6 class="card-title text-primary">Saldo Atual</h6>
+                        <h3 class="card-text fw-bold text-primary" id="saldo-total">R$ 0,00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-header bg-dark text-white fw-bold">Nova Categoria</div>
+                    <div class="card-body">
+                        <form id="form-categoria">
+                            <div class="input-group">
+                                <input type="text" id="categoria-nome" class="form-control" placeholder="Ex: Alimentação" required>
+                                <button class="btn btn-outline-dark" type="submit">Adicionar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white fw-bold" id="form-transacao-titulo">Nova Transação</div>
+                    <div class="card-body">
+                        <form id="form-transacao">
+                            <input type="hidden" id="transacao-id">
+                            
+                            <div class="mb-3">
+                                <label for="transacao-descricao" class="form-label">Descrição</label>
+                                <input type="text" id="transacao-descricao" class="form-control" placeholder="Ex: Mercado Central" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="transacao-valor" class="form-label">Valor (R$)</label>
+                                <input type="number" id="transacao-valor" step="0.01" class="form-control" placeholder="0.00" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="transacao-tipo" class="form-label">Tipo</label>
+                                <select id="transacao-tipo" class="form-select" required>
+                                    <option value="Receita">Receita</option>
+                                    <option value="Despesa" selected>Despesa</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="transacao-categoria" class="form-label">Categoria</label>
+                                <select id="transacao-categoria" class="form-select">
+                                    <option value="">Sem Categoria</option>
+                                    </select>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" id="btn-salvar-transacao" class="btn btn-primary">Salvar Transação</button>
+                                <button type="button" id="btn-cancelar-edicao" class="btn btn-secondary d-none">Cancelar Edição</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white fw-bold text-secondary d-flex justify-content-between align-items-center">
+                        <span>Histórico de Transações</span>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                    <th class="text-end">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-transacoes">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module" src="./frontend/dist/app.js"></script>
+</body>
+</html>
